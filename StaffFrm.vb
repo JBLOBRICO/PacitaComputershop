@@ -36,4 +36,12 @@ Public Class StaffFrm
     Private Sub btnPCStatus_Click(sender As Object, e As EventArgs) Handles btnPCStatus.Click
         LoadChildForm(New Frmpcstatus())
     End Sub
+
+    Private Sub btnSales_Click(sender As Object, e As EventArgs) Handles btnSales.Click
+        LoadChildForm(New frmsalestracker())
+    End Sub
+
+    Private Sub btnBilling_Click(sender As Object, e As EventArgs) Handles btnBilling.Click
+        LoadChildForm(New frmBillingRequest())
+    End Sub
 End Class

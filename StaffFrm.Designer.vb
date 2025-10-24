@@ -106,9 +106,9 @@ Partial Class StaffFrm
         Me.btnBilling.ForeColor = System.Drawing.Color.White
         Me.btnBilling.Location = New System.Drawing.Point(0, 241)
         Me.btnBilling.Name = "btnBilling"
-        Me.btnBilling.Size = New System.Drawing.Size(189, 84)
+        Me.btnBilling.Size = New System.Drawing.Size(189, 89)
         Me.btnBilling.TabIndex = 3
-        Me.btnBilling.Text = "🧾  Billing / Receipts"
+        Me.btnBilling.Text = "🧾  Billing/Replacements"
         Me.btnBilling.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBilling.UseVisualStyleBackColor = False
         '

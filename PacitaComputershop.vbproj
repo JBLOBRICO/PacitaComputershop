@@ -139,10 +139,28 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAddBillingRequest.Designer.vb">
+      <DependentUpon>frmAddBillingRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddBillingRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBillingRequest.Designer.vb">
+      <DependentUpon>frmBillingRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBillingRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Frmpcstatus.Designer.vb">
       <DependentUpon>Frmpcstatus.vb</DependentUpon>
     </Compile>
     <Compile Include="Frmpcstatus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmsalestracker.Designer.vb">
+      <DependentUpon>frmsalestracker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmsalestracker.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -186,8 +204,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddBillingRequest.resx">
+      <DependentUpon>frmAddBillingRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBillingRequest.resx">
+      <DependentUpon>frmBillingRequest.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frmpcstatus.resx">
       <DependentUpon>Frmpcstatus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmsalestracker.resx">
+      <DependentUpon>frmsalestracker.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
