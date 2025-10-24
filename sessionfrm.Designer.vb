@@ -2,182 +2,208 @@
 Partial Class sessionfrm
     Inherits System.Windows.Forms.Form
 
-    'Dispose
+    ' Clean up resources
     <System.Diagnostics.DebuggerNonUserCode()>
-    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+    Protected Overrides Sub Dispose(disposing As Boolean)
         Try
-            If disposing AndAlso components IsNot Nothing Then components.Dispose()
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
         Finally
             MyBase.Dispose(disposing)
         End Try
     End Sub
+
     Private components As System.ComponentModel.IContainer
 
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.pnlHeader = New Panel()
-        Me.lblTitle = New Label()
-        Me.pnlMain = New Panel()
-        Me.grpSessionControl = New Panel()
-        Me.lblPC = New Label()
-        Me.lblTimeType = New Label()
-        Me.lblCustomer = New Label()
-        Me.cmbPC = New ComboBox()
-        Me.cmbTimeType = New ComboBox()
-        Me.txtCustomer = New TextBox()
-        Me.btnStart = New Button()
-        Me.btnEnd = New Button()
-        Me.dgvSessions = New DataGridView()
+        Me.components = New System.ComponentModel.Container()
+        Me.pnlHeader = New System.Windows.Forms.Panel()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.pnlComputers = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pnlInfo = New System.Windows.Forms.Panel()
+        Me.lblPCName = New System.Windows.Forms.Label()
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.lblTimer = New System.Windows.Forms.Label()
+        Me.lblSales = New System.Windows.Forms.Label()
+        Me.txtSales = New System.Windows.Forms.TextBox()
+        Me.btnStart = New System.Windows.Forms.Button()
+        Me.btnEnd = New System.Windows.Forms.Button()
+        Me.sessionTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlHeader.SuspendLayout()
-        Me.pnlMain.SuspendLayout()
-        Me.grpSessionControl.SuspendLayout()
-        CType(Me.dgvSessions, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlInfo.SuspendLayout()
         Me.SuspendLayout()
-
-        '=== FORM ===
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(1275, 612)
-        Me.BackColor = Color.FromArgb(240, 242, 247)
-        Me.FormBorderStyle = FormBorderStyle.None
-        Me.StartPosition = FormStartPosition.CenterScreen
-        Me.Text = "Manage Sessions"
-
-        '=== HEADER ===
-        Me.pnlHeader.Dock = DockStyle.Top
-        Me.pnlHeader.Height = 65
-        Me.pnlHeader.BackColor = Color.FromArgb(34, 40, 49)
+        '
+        'pnlHeader
+        '
+        Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer))
         Me.pnlHeader.Controls.Add(Me.lblTitle)
-
-        Me.lblTitle.Text = "🕒 Manage Sessions"
-        Me.lblTitle.ForeColor = Color.White
-        Me.lblTitle.Font = New Font("Segoe UI", 18, FontStyle.Bold)
+        Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlHeader.Location = New System.Drawing.Point(0, 0)
+        Me.pnlHeader.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlHeader.Name = "pnlHeader"
+        Me.pnlHeader.Size = New System.Drawing.Size(956, 39)
+        Me.pnlHeader.TabIndex = 2
+        '
+        'lblTitle
+        '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Location = New Point(30, 15)
-
-        '=== MAIN PANEL ===
-        Me.pnlMain.Dock = DockStyle.Fill
-        Me.pnlMain.Padding = New Padding(25)
-        Me.pnlMain.BackColor = Color.FromArgb(240, 242, 247)
-        Me.pnlMain.Controls.Add(Me.grpSessionControl)
-        Me.pnlMain.Controls.Add(Me.dgvSessions)
-
-        '=== DATAGRIDVIEW ===
-        Me.dgvSessions.Location = New Point(25, 25)
-        Me.dgvSessions.Size = New Size(1220, 400)
-        Me.dgvSessions.BackgroundColor = Color.White
-        Me.dgvSessions.BorderStyle = BorderStyle.None
-        Me.dgvSessions.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        Me.dgvSessions.ColumnHeadersHeight = 35
-        Me.dgvSessions.EnableHeadersVisualStyles = False
-        Me.dgvSessions.GridColor = Color.FromArgb(230, 230, 230)
-        Me.dgvSessions.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219)
-        Me.dgvSessions.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
-        Me.dgvSessions.ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-        Me.dgvSessions.DefaultCellStyle.Font = New Font("Segoe UI", 10)
-        Me.dgvSessions.DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40)
-        Me.dgvSessions.DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 230, 245)
-        Me.dgvSessions.DefaultCellStyle.SelectionForeColor = Color.Black
-        Me.dgvSessions.RowHeadersVisible = False
-        Me.dgvSessions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvSessions.ReadOnly = True
-        Me.dgvSessions.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-
-        '=== SESSION CONTROL PANEL (CARD STYLE) ===
-        Me.grpSessionControl.BackColor = Color.White
-        Me.grpSessionControl.Location = New Point(25, 450)
-        Me.grpSessionControl.Size = New Size(1220, 120)
-        Me.grpSessionControl.Padding = New Padding(20)
-        Me.grpSessionControl.BorderStyle = BorderStyle.None
-        Me.grpSessionControl.Anchor = AnchorStyles.Left Or AnchorStyles.Right Or AnchorStyles.Bottom
-        Me.grpSessionControl.BackColor = Color.White
-        Me.grpSessionControl.Controls.Add(Me.lblPC)
-        Me.grpSessionControl.Controls.Add(Me.cmbPC)
-        Me.grpSessionControl.Controls.Add(Me.lblTimeType)
-        Me.grpSessionControl.Controls.Add(Me.cmbTimeType)
-        Me.grpSessionControl.Controls.Add(Me.lblCustomer)
-        Me.grpSessionControl.Controls.Add(Me.txtCustomer)
-        Me.grpSessionControl.Controls.Add(Me.btnStart)
-        Me.grpSessionControl.Controls.Add(Me.btnEnd)
-
-        '=== LABELS ===
-        Me.lblPC.Text = "Select PC:"
-        Me.lblPC.Font = New Font("Segoe UI", 10)
-        Me.lblPC.Location = New Point(20, 25)
-        Me.lblPC.AutoSize = True
-
-        Me.lblTimeType.Text = "Session Type:"
-        Me.lblTimeType.Font = New Font("Segoe UI", 10)
-        Me.lblTimeType.Location = New Point(250, 25)
-        Me.lblTimeType.AutoSize = True
-
-        Me.lblCustomer.Text = "Customer Name:"
-        Me.lblCustomer.Font = New Font("Segoe UI", 10)
-        Me.lblCustomer.Location = New Point(480, 25)
-        Me.lblCustomer.AutoSize = True
-
-        '=== INPUTS ===
-        Me.cmbPC.Font = New Font("Segoe UI", 10)
-        Me.cmbPC.DropDownStyle = ComboBoxStyle.DropDownList
-        Me.cmbPC.Size = New Size(120, 27)
-        Me.cmbPC.Location = New Point(100, 22)
-
-        Me.cmbTimeType.Font = New Font("Segoe UI", 10)
-        Me.cmbTimeType.DropDownStyle = ComboBoxStyle.DropDownList
-        Me.cmbTimeType.Items.AddRange(New Object() {"Open Time", "Fixed Time"})
-        Me.cmbTimeType.Size = New Size(150, 27)
-        Me.cmbTimeType.Location = New Point(350, 22)
-
-        Me.txtCustomer.Font = New Font("Segoe UI", 10)
-
-        Me.txtCustomer.Size = New Size(220, 27)
-        Me.txtCustomer.Location = New Point(600, 22)
-
-        '=== BUTTONS ===
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.ForeColor = System.Drawing.Color.White
+        Me.lblTitle.Location = New System.Drawing.Point(15, 10)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(226, 30)
+        Me.lblTitle.TabIndex = 0
+        Me.lblTitle.Text = "💻 Manage Sessions"
+        '
+        'pnlComputers
+        '
+        Me.pnlComputers.AutoScroll = True
+        Me.pnlComputers.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.pnlComputers.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlComputers.Location = New System.Drawing.Point(0, 39)
+        Me.pnlComputers.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlComputers.Name = "pnlComputers"
+        Me.pnlComputers.Padding = New System.Windows.Forms.Padding(15, 13, 15, 13)
+        Me.pnlComputers.Size = New System.Drawing.Size(731, 359)
+        Me.pnlComputers.TabIndex = 0
+        '
+        'pnlInfo
+        '
+        Me.pnlInfo.BackColor = System.Drawing.Color.White
+        Me.pnlInfo.Controls.Add(Me.lblPCName)
+        Me.pnlInfo.Controls.Add(Me.lblStatus)
+        Me.pnlInfo.Controls.Add(Me.lblTimer)
+        Me.pnlInfo.Controls.Add(Me.lblSales)
+        Me.pnlInfo.Controls.Add(Me.txtSales)
+        Me.pnlInfo.Controls.Add(Me.btnStart)
+        Me.pnlInfo.Controls.Add(Me.btnEnd)
+        Me.pnlInfo.Dock = System.Windows.Forms.DockStyle.Right
+        Me.pnlInfo.Location = New System.Drawing.Point(731, 39)
+        Me.pnlInfo.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlInfo.Name = "pnlInfo"
+        Me.pnlInfo.Padding = New System.Windows.Forms.Padding(15, 13, 15, 13)
+        Me.pnlInfo.Size = New System.Drawing.Size(225, 359)
+        Me.pnlInfo.TabIndex = 1
+        '
+        'lblPCName
+        '
+        Me.lblPCName.AutoSize = True
+        Me.lblPCName.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPCName.Location = New System.Drawing.Point(8, 13)
+        Me.lblPCName.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblPCName.Name = "lblPCName"
+        Me.lblPCName.Size = New System.Drawing.Size(111, 25)
+        Me.lblPCName.TabIndex = 0
+        Me.lblPCName.Text = "PC Name: -"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.lblStatus.Location = New System.Drawing.Point(8, 39)
+        Me.lblStatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(65, 21)
+        Me.lblStatus.TabIndex = 1
+        Me.lblStatus.Text = "Status: -"
+        '
+        'lblTimer
+        '
+        Me.lblTimer.AutoSize = True
+        Me.lblTimer.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.lblTimer.Location = New System.Drawing.Point(8, 65)
+        Me.lblTimer.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblTimer.Name = "lblTimer"
+        Me.lblTimer.Size = New System.Drawing.Size(137, 21)
+        Me.lblTimer.TabIndex = 2
+        Me.lblTimer.Text = "Usage Time: 00:00"
+        '
+        'lblSales
+        '
+        Me.lblSales.AutoSize = True
+        Me.lblSales.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.lblSales.Location = New System.Drawing.Point(8, 91)
+        Me.lblSales.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblSales.Name = "lblSales"
+        Me.lblSales.Size = New System.Drawing.Size(72, 21)
+        Me.lblSales.TabIndex = 3
+        Me.lblSales.Text = "Sales (₱):"
+        '
+        'txtSales
+        '
+        Me.txtSales.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.txtSales.Location = New System.Drawing.Point(8, 110)
+        Me.txtSales.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtSales.Name = "txtSales"
+        Me.txtSales.Size = New System.Drawing.Size(188, 29)
+        Me.txtSales.TabIndex = 4
+        '
+        'btnStart
+        '
+        Me.btnStart.BackColor = System.Drawing.Color.FromArgb(CType(CType(58, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(164, Byte), Integer))
+        Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnStart.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.btnStart.ForeColor = System.Drawing.Color.White
+        Me.btnStart.Location = New System.Drawing.Point(8, 150)
+        Me.btnStart.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.Size = New System.Drawing.Size(188, 26)
+        Me.btnStart.TabIndex = 5
         Me.btnStart.Text = "▶ Start Session"
-        Me.btnStart.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-        Me.btnStart.BackColor = Color.FromArgb(46, 204, 113)
-        Me.btnStart.ForeColor = Color.White
-        Me.btnStart.FlatStyle = FlatStyle.Flat
-        Me.btnStart.FlatAppearance.BorderSize = 0
-        Me.btnStart.Size = New Size(160, 40)
-        Me.btnStart.Location = New Point(860, 22)
-        Me.btnStart.Cursor = Cursors.Hand
-        Me.btnStart.Region = New Region(New Drawing2D.GraphicsPath())
-
-        Me.btnEnd.Text = "■ End Session"
-        Me.btnEnd.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-        Me.btnEnd.BackColor = Color.FromArgb(231, 76, 60)
-        Me.btnEnd.ForeColor = Color.White
-        Me.btnEnd.FlatStyle = FlatStyle.Flat
-        Me.btnEnd.FlatAppearance.BorderSize = 0
-        Me.btnEnd.Size = New Size(160, 40)
-        Me.btnEnd.Location = New Point(1040, 22)
-        Me.btnEnd.Cursor = Cursors.Hand
-
-        '=== ADD TO FORM ===
-        Me.Controls.Add(Me.pnlMain)
+        Me.btnStart.UseVisualStyleBackColor = False
+        '
+        'btnEnd
+        '
+        Me.btnEnd.BackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEnd.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.btnEnd.ForeColor = System.Drawing.Color.White
+        Me.btnEnd.Location = New System.Drawing.Point(8, 182)
+        Me.btnEnd.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnEnd.Name = "btnEnd"
+        Me.btnEnd.Size = New System.Drawing.Size(188, 26)
+        Me.btnEnd.TabIndex = 6
+        Me.btnEnd.Text = "⏹ End Session"
+        Me.btnEnd.UseVisualStyleBackColor = False
+        '
+        'sessionTimer
+        '
+        Me.sessionTimer.Interval = 1000
+        '
+        'sessionfrm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(956, 398)
+        Me.Controls.Add(Me.pnlComputers)
+        Me.Controls.Add(Me.pnlInfo)
         Me.Controls.Add(Me.pnlHeader)
-
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Name = "sessionfrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Manage Sessions"
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
-        Me.pnlMain.ResumeLayout(False)
-        Me.grpSessionControl.ResumeLayout(False)
-        Me.grpSessionControl.PerformLayout()
-        CType(Me.dgvSessions, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlInfo.ResumeLayout(False)
+        Me.pnlInfo.PerformLayout()
         Me.ResumeLayout(False)
+
     End Sub
 
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lblTitle As Label
-    Friend WithEvents pnlMain As Panel
-    Friend WithEvents dgvSessions As DataGridView
-    Friend WithEvents grpSessionControl As Panel
-    Friend WithEvents lblPC As Label
-    Friend WithEvents lblTimeType As Label
-    Friend WithEvents lblCustomer As Label
-    Friend WithEvents cmbPC As ComboBox
-    Friend WithEvents cmbTimeType As ComboBox
-    Friend WithEvents txtCustomer As TextBox
+    Friend WithEvents pnlComputers As FlowLayoutPanel
+    Friend WithEvents pnlInfo As Panel
+    Friend WithEvents lblPCName As Label
+    Friend WithEvents lblStatus As Label
+    Friend WithEvents lblTimer As Label
+    Friend WithEvents lblSales As Label
+    Friend WithEvents txtSales As TextBox
     Friend WithEvents btnStart As Button
     Friend WithEvents btnEnd As Button
+    Friend WithEvents sessionTimer As Timer
 End Class

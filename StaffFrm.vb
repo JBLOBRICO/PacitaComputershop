@@ -1,23 +1,29 @@
 ﻿Imports Mysqlx.XDevAPI
 
 Public Class StaffFrm
-    Private Sub LoadChildForm(ByVal childForm As Form)
-
-
+    Private Sub LoadChildForm(childForm As Form)
         pnlMain.Controls.Clear()
-
-        ' 2. Set the child form's properties to fit inside the panel.
-        childForm.TopLevel = False  ' Required to put a Form inside a Control (the Panel)
-        childForm.FormBorderStyle = FormBorderStyle.None ' Removes the title bar/borders of the child form
-        childForm.Dock = DockStyle.Fill ' Makes the child form automatically resize to fill the whole panel
-
-
+        childForm.TopLevel = False
+        childForm.FormBorderStyle = FormBorderStyle.None
+        childForm.Dock = DockStyle.Fill
         pnlMain.Controls.Add(childForm)
-
-
         childForm.Show()
-
     End Sub
+
+    Public Sub New()
+        InitializeComponent()
+
+        ' Turn on double buffering to prevent flicker
+        Me.DoubleBuffered = True
+        SetDoubleBuffered(pnlMain)
+    End Sub
+
+    Private Sub SetDoubleBuffered(ctrl As Control)
+        If SystemInformation.TerminalServerSession Then Return
+        Dim prop = ctrl.GetType().GetProperty("DoubleBuffered", Reflection.BindingFlags.Instance Or Reflection.BindingFlags.NonPublic)
+        prop.SetValue(ctrl, True, Nothing)
+    End Sub
+
 
     Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
 
@@ -25,5 +31,9 @@ Public Class StaffFrm
 
     Private Sub btnSession_Click(sender As Object, e As EventArgs) Handles btnSession.Click
         LoadChildForm(New Sessionfrm())
+    End Sub
+
+    Private Sub btnPCStatus_Click(sender As Object, e As EventArgs) Handles btnPCStatus.Click
+        LoadChildForm(New Frmpcstatus())
     End Sub
 End Class

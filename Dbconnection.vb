@@ -5,6 +5,10 @@ Module Dbconnection
     Public cmd As MySqlCommand
     Public dr As MySqlDataReader
     Public da As MySqlDataAdapter
+    Public LoggedInUserID As Integer
+    Public LoggedInUserRole As String
+    Public LoggedInFullName As String
+    Public loginusername As String
     Public dt As DataTable
 
     ' ✅ Function to open the connection safely
