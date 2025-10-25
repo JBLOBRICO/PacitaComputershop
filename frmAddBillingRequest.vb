@@ -21,13 +21,35 @@ Public Class frmAddBillingRequest
         Try
             OpenConnection() ' Your function to open MySQL connection
 
+            ' Decide SaleID
+            Dim saleID As Object = DBNull.Value ' default: not linked to a sale
+            If Not String.IsNullOrEmpty(txtSaleID.Text.Trim()) Then
+                Dim tempID As Integer
+                If Integer.TryParse(txtSaleID.Text.Trim(), tempID) Then
+                    ' Check if SaleID exists in sales table
+                    Dim checkQuery As String = "SELECT COUNT(*) FROM sales WHERE SaleID = @CheckID"
+                    Using checkCmd As New MySqlCommand(checkQuery, conn)
+                        checkCmd.Parameters.AddWithValue("@CheckID", tempID)
+                        Dim exists As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+                        If exists > 0 Then
+                            saleID = tempID ' valid SaleID
+                        Else
+                            MessageBox.Show("SaleID does not exist. Billing will be saved without linking to a sale.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        End If
+                    End Using
+                Else
+                    MessageBox.Show("Invalid SaleID format. Billing will be saved without linking to a sale.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+
+            ' Insert billing
             Dim query As String = "INSERT INTO billing (SaleID, Amount, Status, ApprovedBy) " &
-                                  "VALUES (@SaleID, @Amount, @Status, @ApprovedBy)"
+                              "VALUES (@SaleID, @Amount, @Status, @ApprovedBy)"
             Using cmd As New MySqlCommand(query, conn)
-                cmd.Parameters.AddWithValue("@SaleID", 0) ' placeholder
+                cmd.Parameters.AddWithValue("@SaleID", saleID)
                 cmd.Parameters.AddWithValue("@Amount", amountValue)
                 cmd.Parameters.AddWithValue("@Status", cmbStatus.SelectedItem.ToString())
-                cmd.Parameters.AddWithValue("@ApprovedBy", DBNull.Value) ' NULL since not approved yet
+                cmd.Parameters.AddWithValue("@ApprovedBy", DBNull.Value) ' Not approved yet
 
                 cmd.ExecuteNonQuery()
             End Using
@@ -39,9 +61,10 @@ Public Class frmAddBillingRequest
         Catch ex As Exception
             MessageBox.Show("Error adding billing request: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            CloseConnection() ' Your function to close MySQL connection
+            CloseConnection()
         End Try
     End Sub
+
 
     ' Cancel button click
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

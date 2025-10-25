@@ -30,6 +30,7 @@ Partial Class frmAddBillingRequest
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.txtsaleid = New System.Windows.Forms.TextBox()
         Me.pnlHeader.SuspendLayout()
         Me.pnlContent.SuspendLayout()
         Me.SuspendLayout()
@@ -58,6 +59,7 @@ Partial Class frmAddBillingRequest
         'pnlContent
         '
         Me.pnlContent.BackColor = System.Drawing.Color.White
+        Me.pnlContent.Controls.Add(Me.txtsaleid)
         Me.pnlContent.Controls.Add(Me.cmbCategory)
         Me.pnlContent.Controls.Add(Me.txtDescription)
         Me.pnlContent.Controls.Add(Me.txtAmount)
@@ -201,6 +203,15 @@ Partial Class frmAddBillingRequest
         Me.btnCancel.Text = "✖ Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
+        'txtsaleid
+        '
+        Me.txtsaleid.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.txtsaleid.Location = New System.Drawing.Point(47, 7)
+        Me.txtsaleid.Name = "txtsaleid"
+        Me.txtsaleid.Size = New System.Drawing.Size(57, 27)
+        Me.txtsaleid.TabIndex = 10
+        Me.txtsaleid.Visible = False
+        '
         'frmAddBillingRequest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -236,4 +247,5 @@ Partial Class frmAddBillingRequest
     Friend WithEvents lblStatus As Label
     Friend WithEvents btnSave As Button
     Friend WithEvents btnCancel As Button
+    Friend WithEvents txtsaleid As TextBox
 End Class
