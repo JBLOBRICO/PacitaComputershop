@@ -17,18 +17,16 @@ Partial Class ownerfrm
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblOwnerName = New System.Windows.Forms.Label()
-        Me.btnLogoutHeader = New System.Windows.Forms.Button()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.pnlSidebar = New System.Windows.Forms.Panel()
-        Me.btnUsers = New System.Windows.Forms.Button()
         Me.btnMonitoring = New System.Windows.Forms.Button()
-        Me.btnPCStatus = New System.Windows.Forms.Button()
-        Me.btnAnalytics = New System.Windows.Forms.Button()
+        Me.btnApprovals = New System.Windows.Forms.Button()
+        Me.btnSalesAnalytics = New System.Windows.Forms.Button()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.pnlHeader.SuspendLayout()
@@ -37,26 +35,26 @@ Partial Class ownerfrm
         '
         'pnlHeader
         '
-        Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(55, Byte), Integer))
         Me.pnlHeader.Controls.Add(Me.lblTitle)
         Me.pnlHeader.Controls.Add(Me.lblOwnerName)
-        Me.pnlHeader.Controls.Add(Me.btnLogoutHeader)
+        Me.pnlHeader.Controls.Add(Me.btnLogout)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHeader.Location = New System.Drawing.Point(0, 0)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(1141, 52)
+        Me.pnlHeader.Size = New System.Drawing.Size(1245, 52)
         Me.pnlHeader.TabIndex = 0
         '
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold)
         Me.lblTitle.ForeColor = System.Drawing.Color.White
         Me.lblTitle.Location = New System.Drawing.Point(17, 13)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(333, 30)
+        Me.lblTitle.Size = New System.Drawing.Size(345, 30)
         Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "Pacita Computer Shop - Admin"
+        Me.lblTitle.Text = "Pacita Computer Shop - Owner UI"
         '
         'lblOwnerName
         '
@@ -64,55 +62,39 @@ Partial Class ownerfrm
         Me.lblOwnerName.AutoSize = True
         Me.lblOwnerName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.lblOwnerName.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblOwnerName.Location = New System.Drawing.Point(872, 17)
+        Me.lblOwnerName.Location = New System.Drawing.Point(975, 17)
         Me.lblOwnerName.Name = "lblOwnerName"
-        Me.lblOwnerName.Size = New System.Drawing.Size(177, 19)
+        Me.lblOwnerName.Size = New System.Drawing.Size(178, 19)
         Me.lblOwnerName.TabIndex = 2
-        Me.lblOwnerName.Text = "Welcome, Admin Username"
+        Me.lblOwnerName.Text = "Welcome, Owner Username"
         '
-        'btnLogoutHeader
+        'btnLogout
         '
-        Me.btnLogoutHeader.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnLogoutHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.btnLogoutHeader.FlatAppearance.BorderSize = 0
-        Me.btnLogoutHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogoutHeader.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.btnLogoutHeader.ForeColor = System.Drawing.Color.White
-        Me.btnLogoutHeader.Location = New System.Drawing.Point(1055, 13)
-        Me.btnLogoutHeader.Name = "btnLogoutHeader"
-        Me.btnLogoutHeader.Size = New System.Drawing.Size(73, 26)
-        Me.btnLogoutHeader.TabIndex = 1
-        Me.btnLogoutHeader.Text = "Logout"
-        Me.btnLogoutHeader.UseVisualStyleBackColor = False
+        Me.btnLogout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.btnLogout.FlatAppearance.BorderSize = 0
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.btnLogout.ForeColor = System.Drawing.Color.White
+        Me.btnLogout.Location = New System.Drawing.Point(1159, 13)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(73, 26)
+        Me.btnLogout.TabIndex = 1
+        Me.btnLogout.Text = "Logout"
+        Me.btnLogout.UseVisualStyleBackColor = False
         '
         'pnlSidebar
         '
-        Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(65, Byte), Integer))
-        Me.pnlSidebar.Controls.Add(Me.btnUsers)
+        Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.pnlSidebar.Controls.Add(Me.btnMonitoring)
-        Me.pnlSidebar.Controls.Add(Me.btnPCStatus)
-        Me.pnlSidebar.Controls.Add(Me.btnAnalytics)
+        Me.pnlSidebar.Controls.Add(Me.btnApprovals)
+        Me.pnlSidebar.Controls.Add(Me.btnSalesAnalytics)
         Me.pnlSidebar.Controls.Add(Me.btnDashboard)
         Me.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlSidebar.Location = New System.Drawing.Point(0, 52)
         Me.pnlSidebar.Name = "pnlSidebar"
-        Me.pnlSidebar.Size = New System.Drawing.Size(189, 478)
+        Me.pnlSidebar.Size = New System.Drawing.Size(189, 497)
         Me.pnlSidebar.TabIndex = 1
-        '
-        'btnUsers
-        '
-        Me.btnUsers.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnUsers.FlatAppearance.BorderSize = 0
-        Me.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUsers.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnUsers.ForeColor = System.Drawing.Color.White
-        Me.btnUsers.Location = New System.Drawing.Point(0, 332)
-        Me.btnUsers.Name = "btnUsers"
-        Me.btnUsers.Size = New System.Drawing.Size(189, 80)
-        Me.btnUsers.TabIndex = 4
-        Me.btnUsers.Text = "👤  Manage Users"
-        Me.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUsers.UseVisualStyleBackColor = False
         '
         'btnMonitoring
         '
@@ -121,47 +103,46 @@ Partial Class ownerfrm
         Me.btnMonitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMonitoring.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.btnMonitoring.ForeColor = System.Drawing.Color.White
-        Me.btnMonitoring.Location = New System.Drawing.Point(0, 246)
+        Me.btnMonitoring.Location = New System.Drawing.Point(0, 243)
         Me.btnMonitoring.Name = "btnMonitoring"
-        Me.btnMonitoring.Size = New System.Drawing.Size(189, 86)
+        Me.btnMonitoring.Size = New System.Drawing.Size(189, 80)
         Me.btnMonitoring.TabIndex = 3
-        Me.btnMonitoring.Text = "🧾  Monitoring"
+        Me.btnMonitoring.Text = "👀  Monitoring (Read-Only)"
         Me.btnMonitoring.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnMonitoring.UseVisualStyleBackColor = False
         '
-        'btnPCStatus
+        'btnApprovals
         '
-        Me.btnPCStatus.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnPCStatus.FlatAppearance.BorderSize = 0
-        Me.btnPCStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPCStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnPCStatus.ForeColor = System.Drawing.Color.White
-        Me.btnPCStatus.Location = New System.Drawing.Point(0, 166)
-        Me.btnPCStatus.Name = "btnPCStatus"
-        Me.btnPCStatus.Size = New System.Drawing.Size(189, 80)
-        Me.btnPCStatus.TabIndex = 2
-        Me.btnPCStatus.Text = "💻  PC Status"
-        Me.btnPCStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPCStatus.UseVisualStyleBackColor = False
+        Me.btnApprovals.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnApprovals.FlatAppearance.BorderSize = 0
+        Me.btnApprovals.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnApprovals.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.btnApprovals.ForeColor = System.Drawing.Color.White
+        Me.btnApprovals.Location = New System.Drawing.Point(0, 162)
+        Me.btnApprovals.Name = "btnApprovals"
+        Me.btnApprovals.Size = New System.Drawing.Size(189, 81)
+        Me.btnApprovals.TabIndex = 2
+        Me.btnApprovals.Text = "✅  Approvals"
+        Me.btnApprovals.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnApprovals.UseVisualStyleBackColor = False
         '
-        'btnAnalytics
+        'btnSalesAnalytics
         '
-        Me.btnAnalytics.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAnalytics.FlatAppearance.BorderSize = 0
-        Me.btnAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAnalytics.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.btnAnalytics.ForeColor = System.Drawing.Color.White
-        Me.btnAnalytics.Location = New System.Drawing.Point(0, 86)
-        Me.btnAnalytics.Name = "btnAnalytics"
-        Me.btnAnalytics.Size = New System.Drawing.Size(189, 80)
-        Me.btnAnalytics.TabIndex = 1
-        Me.btnAnalytics.Text = "📊  Analytics"
-        Me.btnAnalytics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAnalytics.UseVisualStyleBackColor = False
+        Me.btnSalesAnalytics.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnSalesAnalytics.FlatAppearance.BorderSize = 0
+        Me.btnSalesAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalesAnalytics.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.btnSalesAnalytics.ForeColor = System.Drawing.Color.White
+        Me.btnSalesAnalytics.Location = New System.Drawing.Point(0, 81)
+        Me.btnSalesAnalytics.Name = "btnSalesAnalytics"
+        Me.btnSalesAnalytics.Size = New System.Drawing.Size(189, 81)
+        Me.btnSalesAnalytics.TabIndex = 1
+        Me.btnSalesAnalytics.Text = "📊  Sales & Analytics"
+        Me.btnSalesAnalytics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSalesAnalytics.UseVisualStyleBackColor = False
         '
         'btnDashboard
         '
-        Me.btnDashboard.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(65, Byte), Integer))
         Me.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnDashboard.FlatAppearance.BorderSize = 0
         Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -169,9 +150,9 @@ Partial Class ownerfrm
         Me.btnDashboard.ForeColor = System.Drawing.Color.White
         Me.btnDashboard.Location = New System.Drawing.Point(0, 0)
         Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Size = New System.Drawing.Size(189, 86)
+        Me.btnDashboard.Size = New System.Drawing.Size(189, 81)
         Me.btnDashboard.TabIndex = 0
-        Me.btnDashboard.Text = "🏠  Dashboard"
+        Me.btnDashboard.Text = "🏠  Dashboard / Overview"
         Me.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnDashboard.UseVisualStyleBackColor = False
         '
@@ -181,7 +162,7 @@ Partial Class ownerfrm
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(189, 52)
         Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(952, 478)
+        Me.pnlMain.Size = New System.Drawing.Size(1056, 497)
         Me.pnlMain.TabIndex = 2
         '
         'ownerfrm
@@ -189,7 +170,7 @@ Partial Class ownerfrm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1141, 530)
+        Me.ClientSize = New System.Drawing.Size(1245, 549)
         Me.Controls.Add(Me.pnlMain)
         Me.Controls.Add(Me.pnlSidebar)
         Me.Controls.Add(Me.pnlHeader)
@@ -197,7 +178,7 @@ Partial Class ownerfrm
         Me.MaximizeBox = False
         Me.Name = "ownerfrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Admin - Pacita Computer Shop"
+        Me.Text = "Owner - Pacita Computer Shop"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlHeader.ResumeLayout(False)
         Me.pnlHeader.PerformLayout()
@@ -208,13 +189,12 @@ Partial Class ownerfrm
 
     Friend WithEvents pnlHeader As Panel
     Friend WithEvents lblTitle As Label
-    Friend WithEvents btnLogoutHeader As Button
     Friend WithEvents lblOwnerName As Label
+    Friend WithEvents btnLogout As Button
     Friend WithEvents pnlSidebar As Panel
     Friend WithEvents btnDashboard As Button
-    Friend WithEvents btnAnalytics As Button
-    Friend WithEvents btnPCStatus As Button
+    Friend WithEvents btnSalesAnalytics As Button
+    Friend WithEvents btnApprovals As Button
     Friend WithEvents btnMonitoring As Button
-    Friend WithEvents btnUsers As Button
     Friend WithEvents pnlMain As Panel
 End Class

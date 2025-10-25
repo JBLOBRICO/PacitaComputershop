@@ -44,4 +44,8 @@ Public Class StaffFrm
     Private Sub btnBilling_Click(sender As Object, e As EventArgs) Handles btnBilling.Click
         LoadChildForm(New frmBillingRequest())
     End Sub
+
+    Private Sub pnlHeader_Paint(sender As Object, e As PaintEventArgs) Handles pnlHeader.Paint
+
+    End Sub
 End Class

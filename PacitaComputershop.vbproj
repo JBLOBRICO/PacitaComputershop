@@ -102,6 +102,7 @@
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -145,6 +146,12 @@
     <Compile Include="frmAddBillingRequest.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmanalytics.Designer.vb">
+      <DependentUpon>frmanalytics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmanalytics.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmBillingRequest.Designer.vb">
       <DependentUpon>frmBillingRequest.vb</DependentUpon>
     </Compile>
@@ -178,6 +185,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ownerdashboardfrm.Designer.vb">
+      <DependentUpon>ownerdashboardfrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ownerdashboardfrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ownerfrm.Designer.vb">
       <DependentUpon>ownerfrm.vb</DependentUpon>
     </Compile>
@@ -207,6 +220,9 @@
     <EmbeddedResource Include="frmAddBillingRequest.resx">
       <DependentUpon>frmAddBillingRequest.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmanalytics.resx">
+      <DependentUpon>frmanalytics.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBillingRequest.resx">
       <DependentUpon>frmBillingRequest.vb</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +237,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ownerdashboardfrm.resx">
+      <DependentUpon>ownerdashboardfrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ownerfrm.resx">
       <DependentUpon>ownerfrm.vb</DependentUpon>
