@@ -153,6 +153,12 @@
     <Compile Include="frmanalytics.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmbillingapproval.Designer.vb">
+      <DependentUpon>frmbillingapproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmbillingapproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmBillingRequest.Designer.vb">
       <DependentUpon>frmBillingRequest.vb</DependentUpon>
     </Compile>
@@ -169,6 +175,12 @@
       <DependentUpon>frmsalestracker.vb</DependentUpon>
     </Compile>
     <Compile Include="frmsalestracker.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSystemMonitor.Designer.vb">
+      <DependentUpon>frmSystemMonitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSystemMonitor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -224,6 +236,9 @@
     <EmbeddedResource Include="frmanalytics.resx">
       <DependentUpon>frmanalytics.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmbillingapproval.resx">
+      <DependentUpon>frmbillingapproval.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBillingRequest.resx">
       <DependentUpon>frmBillingRequest.vb</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmsalestracker.resx">
       <DependentUpon>frmsalestracker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSystemMonitor.resx">
+      <DependentUpon>frmSystemMonitor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -18,6 +18,7 @@ Partial Class frmAddBillingRequest
         Me.pnlHeader = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.pnlContent = New System.Windows.Forms.Panel()
+        Me.txtsaleid = New System.Windows.Forms.TextBox()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.txtAmount = New System.Windows.Forms.TextBox()
@@ -30,7 +31,6 @@ Partial Class frmAddBillingRequest
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.txtsaleid = New System.Windows.Forms.TextBox()
         Me.pnlHeader.SuspendLayout()
         Me.pnlContent.SuspendLayout()
         Me.SuspendLayout()
@@ -79,12 +79,21 @@ Partial Class frmAddBillingRequest
         Me.pnlContent.Size = New System.Drawing.Size(411, 290)
         Me.pnlContent.TabIndex = 1
         '
+        'txtsaleid
+        '
+        Me.txtsaleid.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.txtsaleid.Location = New System.Drawing.Point(47, 7)
+        Me.txtsaleid.Name = "txtsaleid"
+        Me.txtsaleid.Size = New System.Drawing.Size(57, 27)
+        Me.txtsaleid.TabIndex = 10
+        Me.txtsaleid.Visible = False
+        '
         'cmbCategory
         '
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCategory.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Items.AddRange(New Object() {"Electricity", "Water", "Internet", "Maintenance", "Others"})
+        Me.cmbCategory.Items.AddRange(New Object() {"Billing", "Replacement"})
         Me.cmbCategory.Location = New System.Drawing.Point(129, 35)
         Me.cmbCategory.Name = "cmbCategory"
         Me.cmbCategory.Size = New System.Drawing.Size(241, 28)
@@ -202,15 +211,6 @@ Partial Class frmAddBillingRequest
         Me.btnCancel.TabIndex = 6
         Me.btnCancel.Text = "✖ Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
-        '
-        'txtsaleid
-        '
-        Me.txtsaleid.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.txtsaleid.Location = New System.Drawing.Point(47, 7)
-        Me.txtsaleid.Name = "txtsaleid"
-        Me.txtsaleid.Size = New System.Drawing.Size(57, 27)
-        Me.txtsaleid.TabIndex = 10
-        Me.txtsaleid.Visible = False
         '
         'frmAddBillingRequest
         '

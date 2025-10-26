@@ -32,4 +32,16 @@
     Private Sub btnSalesAnalytics_Click(sender As Object, e As EventArgs) Handles btnSalesAnalytics.Click
         LoadChildForm(New frmanalytics())
     End Sub
+
+    Private Sub pnlMain_Paint(sender As Object, e As PaintEventArgs) Handles pnlMain.Paint
+
+    End Sub
+
+    Private Sub btnApprovals_Click(sender As Object, e As EventArgs) Handles btnApprovals.Click
+        LoadChildForm(New frmBillingApproval())
+    End Sub
+
+    Private Sub btnMonitoring_Click(sender As Object, e As EventArgs) Handles btnMonitoring.Click
+        LoadChildForm(New frmSystemMonitor())
+    End Sub
 End Class

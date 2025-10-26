@@ -52,7 +52,7 @@ Partial Class frmBillingRequest
         Me.lblTitle.ForeColor = System.Drawing.Color.White
         Me.lblTitle.Location = New System.Drawing.Point(20, 10)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(213, 30)
+        Me.lblTitle.Size = New System.Drawing.Size(214, 30)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "📑 Billing Manager"
         '
