@@ -83,17 +83,27 @@ Public Class sessionfrm
             Return
         End If
 
-        If PCStatus(SelectedPCID) Then
-            MessageBox.Show("This PC is already in use.")
-            Return
-        End If
-
         Try
             OpenConnection()
 
+            ' ✅ Check current PC status
+            Dim statusQuery As String = "SELECT Status FROM computers WHERE ComputerID=@id"
+            cmd = New MySqlCommand(statusQuery, conn)
+            cmd.Parameters.AddWithValue("@id", SelectedPCID)
+            Dim currentStatus As String = cmd.ExecuteScalar()?.ToString()
+
+            If currentStatus = "In Use" Then
+                MessageBox.Show("This PC is already in use.")
+                Return
+            ElseIf currentStatus = "Maintenance" Then
+                MessageBox.Show("This PC is under maintenance and cannot start a session.")
+                Return
+            End If
+
+            ' ✅ Start the session
             Dim insertQuery As String = "
-                INSERT INTO sales (ComputerID, UserID, StartTime, RatePerHour, PaymentStatus)
-                VALUES (@compID, @userID, NOW(), @rate, 'Unpaid');"
+            INSERT INTO sales (ComputerID, UserID, StartTime, RatePerHour, PaymentStatus)
+            VALUES (@compID, @userID, NOW(), @rate, 'Unpaid');"
             cmd = New MySqlCommand(insertQuery, conn)
             cmd.Parameters.AddWithValue("@compID", SelectedPCID)
             cmd.Parameters.AddWithValue("@userID", LoggedInUserID)
@@ -122,6 +132,7 @@ Public Class sessionfrm
         End Try
     End Sub
 
+
     ' ====== END SESSION ======
     Private Sub btnEnd_Click(sender As Object, e As EventArgs) Handles btnEnd.Click
         If SelectedPCID = -1 Then
@@ -132,6 +143,21 @@ Public Class sessionfrm
         Try
             OpenConnection()
 
+            ' ✅ Check current PC status
+            Dim statusQuery As String = "SELECT Status FROM computers WHERE ComputerID=@id"
+            cmd = New MySqlCommand(statusQuery, conn)
+            cmd.Parameters.AddWithValue("@id", SelectedPCID)
+            Dim currentStatus As String = cmd.ExecuteScalar()?.ToString()
+
+            If currentStatus = "Maintenance" Then
+                MessageBox.Show("You cannot end a session for a PC under maintenance.")
+                Return
+            ElseIf currentStatus = "Available" Then
+                MessageBox.Show("No active session found for this PC.")
+                Return
+            End If
+
+            ' ✅ Get the active unpaid session
             Dim getSaleQuery As String = "SELECT SaleID, StartTime FROM sales WHERE ComputerID=@id AND PaymentStatus='Unpaid' ORDER BY SaleID DESC LIMIT 1"
             cmd = New MySqlCommand(getSaleQuery, conn)
             cmd.Parameters.AddWithValue("@id", SelectedPCID)
@@ -164,7 +190,7 @@ Public Class sessionfrm
                 MessageBox.Show($"{SelectedPCName} session ended. Total: ₱{totalAmount}", "Session Complete", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LoadComputers()
             Else
-                MessageBox.Show("No active session found for this PC.")
+                MessageBox.Show("No active unpaid session found for this PC.")
             End If
 
         Catch ex As Exception
@@ -173,6 +199,7 @@ Public Class sessionfrm
             CloseConnection()
         End Try
     End Sub
+
 
     ' ====== SESSION TIMER ======
     Private Sub sessionTimer_Tick(sender As Object, e As EventArgs) Handles sessionTimer.Tick
@@ -197,4 +224,7 @@ Public Class sessionfrm
         End If
     End Sub
 
+    Private Sub pnlHeader_Paint(sender As Object, e As PaintEventArgs) Handles pnlHeader.Paint
+
+    End Sub
 End Class
